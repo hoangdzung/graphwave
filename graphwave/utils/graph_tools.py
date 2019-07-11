@@ -2,10 +2,10 @@
 """
 Tools for the analysis of the Graph
 """
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
-import seaborn as sb
+#import seaborn as sb
 import scipy as sc
 
 

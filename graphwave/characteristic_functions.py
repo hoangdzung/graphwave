@@ -6,9 +6,9 @@ in Euclidean space
 """
 import cmath
 import math
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sb
+#import seaborn as sb
 
 
 def plot_characteristic_function(phi_s, bunch, time_pnts, ind_tau):

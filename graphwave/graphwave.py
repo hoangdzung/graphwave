@@ -1,6 +1,5 @@
 import copy
 import math
-import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
 import scipy as sc
@@ -85,7 +84,7 @@ def heat_diffusion_ind(graph, taus=TAUS, order = ORDER, proc = PROC):
     return heat, taus
 
 
-def graphwave_alg(graph, time_pnts, taus= 'auto', 
+def graphwave_alg(graph, time_pnts, taus= 'auto',
               verbose=False, approximate_lambda=True,
               order=ORDER, proc=PROC, nb_filters=NB_FILTERS,
               **kwargs):

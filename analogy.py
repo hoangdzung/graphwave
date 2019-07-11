@@ -1,8 +1,7 @@
-import networkx as nx 
+import networkx as nx
 import numpy as np
 import graphwave
-from graphwave.shapes import build_graph
-from graphwave.graphwave import *
+from graphwave.graphwave import graphwave_alg
 import argparse
 from scipy import spatial
 from sklearn.metrics import roc_auc_score
@@ -16,7 +15,7 @@ def sim_vec(embedding, x, cosin=True):
             vec1 = embedding[x[i]]
         else:
             vec1 += embedding[x[i]]
-    
+
     for i in range(linearSize, len(x)):
         if vec2 is None:
             vec2 = embedding[x[i]]
@@ -43,9 +42,10 @@ combinations = combinations.tolist()
 dim = len(G.nodes())
 print("Done!")
 print("Calculate embedding...")
-import time 
+import time
 stime = time.time()
 chi, heat_print, taus = graphwave_alg(G, np.linspace(0,100,25), taus='auto', verbose=True)
+import pdb;pdb.set_trace()
 print("Done! Take {}s", time.time()-stime)
 combinations_list =  [(set(combination[:linearSize]), set(combination[linearSize:])) for combination in combinations]
 non_combinations = []
@@ -71,5 +71,5 @@ for non_combination in non_combinations:
     sims_cos.append(sim_vec(chi, non_combination))
     sims_dis.append(sim_vec(chi, non_combination, cosin=False))
 pdb.set_trace()
-print(roc_auc_score(labels, sims_cos))
-print(roc_auc_score(labels, sims_dis))
+print("cosin: ",roc_auc_score(labels, sims_cos))
+print("dis: ",roc_auc_score(labels, sims_dis))
