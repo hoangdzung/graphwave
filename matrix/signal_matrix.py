@@ -191,5 +191,6 @@ if __name__ == "__main__":
     min_count = 100
     neg_samples = 1
     skip_window = 5
-    pmi, dd, rd, nij = generate_matrix("data/word2vec/text8.zip", vocabulary_size, min_count, neg_samples, skip_window)
-    pdb.set_trace()
+    pmi, dd, rd, nij = generate_matrix("../data/text8.zip", vocabulary_size, min_count, neg_samples, skip_window)
+    import pickle
+    pickle.dump([pmi, dd, rd, nij], open('../text8_{}.pkl'.format(vocabulary_size),'wb'), protocol=2)
