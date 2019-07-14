@@ -22,7 +22,7 @@ args = parser.parse_args()
 
 if not os.path.isfile("text8_{}.pkl".format(args.vocabulary_size)):
     pmi, dd, rd, nij = generate_matrix(
-        "data/word2vec/text8.zip", args.vocabulary_size, args.min_count, args.neg_samples, args.skip_window)
+        "data/text8.zip", args.vocabulary_size, args.min_count, args.neg_samples, args.skip_window)
 else:
     pmi, dd, rd, nij = pickle.load("text8_{}.pkl".format(args.vocabulary_size))
 
