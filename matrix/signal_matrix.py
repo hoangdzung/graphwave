@@ -183,7 +183,7 @@ def generate_matrix(afile, vocab_size, min_count, neg_samples, skip_window):
     indexed_corpus = tokenizer.do_index_data(data,
             n_words=vocab_size,
             min_count=min_count)
-    pmi, nij = construct_coo_matrix(indexed_corpus, neg_samples, skip_window)
+    pmi, nij = construct_matrix(indexed_corpus, neg_samples, skip_window)
     return pmi, tokenizer.dictionary, tokenizer.reversed_dictionary, nij
 
 if __name__ == "__main__":
